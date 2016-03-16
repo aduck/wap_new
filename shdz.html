@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>收货地址</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="http://file.easeeyes.com/index2015/css/ani.css" />
+</head>
+<body>
+<div class="container">
+	<!-- 头部标题 -->
+	<div class="title-header">
+		<h2 class="text-center">
+			<a href="" class="btn-back"></a>
+			收货地址
+		</h2>
+	</div>
+	
+	<!--收货地址-->
+	<div style="background:#fff;padding-bottom:2rem;">
+		<div class="shipAddr">
+			<div class="item">
+				收货人：
+				<input type="text" name="" value="" />
+			</div>
+			<div class="item">
+				手机号码：
+				<input type="text" name="" value="" />
+			</div>
+			<div class="item">
+				所在地区：
+				<span class="area_selector" id="area_selector" onclick="poper2.open();"></span>
+			</div>
+			<div class="item">
+				详细地址：
+				<textarea class=""></textarea>
+			</div>
+			<div class="item">
+				<div class="pull-right switchbox">
+					<label for="switch">
+						<input type="checkbox" value="" name="" id="switch" />
+						<span class="g-switch"><i></i></span>
+					</label>
+				</div>
+				设为默认地址
+				<small>注：每次下单时会使用该地址</small>
+			</div>
+		</div>
+		
+		<div style="margin-top:10rem;"><button class="g-btn-large">保存并使用</button></div>
+	</div>
+</div>	
+<!--底部弹窗-->
+<div id="tpl-fullpage-2" class="tpl-fullpage">
+	<div class="areaSelector" id="tpl-bottom-2">
+		<div class="areaSelector-buttons">
+			<span class="pull-right" onclick="select_complete();">完成</span>
+			<span onclick="poper2.close()">关闭</span>
+		</div>
+		<div class="areaSelector-main">
+			<div class="areaSelector-part">
+				<div class="areaSelector-items" id="area-provinces">
+					<span class="areaSelector-item">上海</span>
+					<span class="areaSelector-item">甘肃</span>
+					<span class="areaSelector-item">江苏</span>
+					<span class="areaSelector-item">四川</span>
+					<span class="areaSelector-item">浙江</span>
+					<span class="areaSelector-item">安徽</span>
+					<span class="areaSelector-item">湖南</span>
+					<span class="areaSelector-item">湖北</span>
+				</div>
+			</div>
+			<div class="areaSelector-part">
+				<div class="areaSelector-items" id="area-citys">
+					<span class="areaSelector-item">上海市</span>
+			
+				</div>
+			</div>
+			<div class="areaSelector-part">
+				<div class="areaSelector-items" id="area-districts">
+					<span class="areaSelector-item">黄浦区</span>
+					<span class="areaSelector-item">静安区</span>
+					<span class="areaSelector-item">嘉定区</span>
+					<span class="areaSelector-item">闵行区</span>
+					<span class="areaSelector-item">徐汇区</span>
+					<span class="areaSelector-item">闸北区</span>
+				</div>
+			</div>
+			<p class="areaSelector-line" id="areaSelector-line"></p>
+		</div>
+	</div>
+</div>
+
+<!-- scripts -->
+<script src="http://file.easeeyes.com/wap/js/fastclick.min.js"></script>
+<script src="http://file.easeeyes.com/js/response.js"></script>
+<script src="http://file.easeeyes.com/js/jquery.min.js"></script>
+<script src="pop.js"></script>
+<script src="tmAble.js"></script>
+<script src="areaSelect.js"></script>
+<script>
+window.addEventListener('load',function(){
+	// 弹窗
+	window.poper2=Pop.create({
+		id:"tpl-bottom-2",
+    	fullpage:document.getElementById("tpl-fullpage-2"),
+    	closeAble:true
+	});
+
+	// 滑动
+	Array.prototype.slice.call(document.querySelectorAll('.areaSelector-items'),0).forEach(function(itembox){
+		TmAble.init(itembox,{
+			X:false,
+			endCallback:function(){		
+				areaSelect.teCallback(itembox);
+			}
+		})
+	});
+
+	function select_complete(){
+		var area_box=document.getElementById('area_selector');
+		area_box.innerHTML=areaSelect.result.province+" "+areaSelect.result.city+" "+areaSelect.result.district;
+		poper2.close();
+	}
+	window.select_complete=select_complete;
+},false);
+</script>
+</body>
+</html>

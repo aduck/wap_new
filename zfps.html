@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>支付配送</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="http://file.easeeyes.com/index2015/css/ani.css" />
+</head>
+<body>
+<div class="container">
+	<!-- 头部标题 -->
+	<div class="title-header">
+		<h2 class="text-center">
+			<a href="" class="btn-back"></a>
+			支付配送
+		</h2>
+	</div>
+	
+	<div style="background:#fff;padding-bottom:1rem;">
+		<h3 class="payment-title">支付方式</h3>
+		<!--在线支付-->
+		<div class="payment-box">
+			<div class="payment-summary">
+				<h4 class="">
+					<label for="zxzf">
+						<input type="radio" name="" value="" id="zxzf" />
+						<span></span>
+					</label>
+					在线支付
+				</h4>
+				<p>在线支付可支持微信支付、余额宝支付</p>
+			</div>
+			<div class="payment-detail">
+				<!--支付选项-->
+				<div class="item">
+					<label for="zfbzf">
+						<input type="radio" name="zf_type" value="zfb" id="zfbzf" />
+						<img src="slice/zfbzf.jpg" />
+					</label>
+				</div>
+				<div class="item">
+					<label for="wxzf">
+						<input type="radio" name="zf_type" value="wx" id="wxzf" />
+						<img src="slice/wxzf.jpg" />
+					</label>
+				</div>
+			</div>	
+			<!--快递-->
+			<div class="payment-type">
+				<div class="pull-right">快递运费 <span>&yen;0.00</span></div>
+				<span class="button">申通快递</span>
+			</div>
+
+		</div>
+		<!--货到付款-->
+		<div class="payment-box">
+			<div class="payment-summary">
+				<h4 class="">
+					<label for="hdfk">
+						<input type="radio" name="" value="" id="hdfk" />
+						<span></span>
+					</label>
+					货到付款
+				</h4>
+				<p>送货上门后再收款，不免运费</p>
+			</div>
+			<div class="payment-detail">
+
+			</div>	
+			<!--快递-->
+			<div class="payment-type">
+				<div class="pull-right">快递运费 <span>&yen;8.00</span></div>
+				<span class="button">宅急送</span>
+			</div>
+		</div>
+	
+		<div style="padding-top:8rem;">
+			<button class="g-btn-large">确 认</button>
+		</div>
+	</div>
+</div>	
+<!-- scripts -->
+<script src="http://file.easeeyes.com/wap/js/fastclick.min.js"></script>
+<script src="http://file.easeeyes.com/js/response.js"></script>
+<script src="fold.js"></script>
+<script> 
+window.addEventListener('load',function(){
+	FastClick.attach(document.body);
+
+	var bars=Array.prototype.slice.call(document.querySelectorAll('.payment-summary'),0),
+    	elems=Array.prototype.slice.call(document.querySelectorAll('.payment-detail'),0);
+    bars.forEach(function(bar,index){
+    	new Folder({
+    		bar:bar,
+    		elem:elems[index],
+    		state:0
+    	})
+    })
+
+},false);
+</script>
+</body>
+</html>

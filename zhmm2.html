@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>找回密码</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="http://file.easeeyes.com/index2015/css/ani.css" />
+<style>
+html,body{height:100%;}
+body{background:#fff;}
+</style>
+</head>
+<body>
+<div class="container">
+	<!-- 头部标题 -->
+	<div class="title-header">
+		<h2 class="text-center">
+			<a href="" class="btn-back"></a>
+			找回密码
+		</h2>
+	</div>
+	
+	<!-- 表单 -->
+	<div class="box-form-lp">
+		<form>
+			<p class="box-underline title-zhmm2">请确认验证方式</p>
+			<p class="box-underline box-phonenum phoneNum-zhmm2">
+				<span class="blue">136****1234</span>
+				<span class="pull-right g-btn-close-circle">&times;</span>
+			</p>
+			<p style="margin-top:3rem;"><button class="g-btn-large" onclick="pop02.open();return false;">下一步</button></p>
+
+		</form>
+	</div>
+</div>
+
+<!-- 底部弹窗 -->
+<div id="tpl-fullpage2" class="tpl-fullpage">
+	<div class="box-tpl-main" id="tpl-bottom2">
+		<div class="title">请选择以下对应账号</div>
+		<div class="text text2">
+			<ul class="items-account">
+				<li><label for="zh_1"><input type="radio" value="" name="zh" id="zh_1" /><span class="checkbox"></span>郭富城01</label></li>
+				<li><label for="zh_2"><input type="radio" value="" name="zh" id="zh_2" /><span class="checkbox"></span>郭富城02</label></li>
+				<li><label for="zh_3"><input type="radio" value="" name="zh" id="zh_3" /><span class="checkbox"></span>郭富城03</label></li>
+				<li><label for="zh_4"><input type="radio" value="" name="zh" id="zh_4" /><span class="checkbox"></span>郭富城04</label></li>
+				<li><label for="zh_5"><input type="radio" value="" name="zh" id="zh_5" /><span class="checkbox"></span>郭富城05</label></li>
+			</ul>
+
+		</div>
+		<div class="box-btn">
+			<button onclick="pop02.close()">确 定</button>
+		</div>
+	</div>
+</div>
+
+<!-- scripts -->
+<script src="http://file.easeeyes.com/wap/js/fastclick.min.js"></script>
+<script src="http://file.easeeyes.com/js/response.js"></script>
+<script src="pop.js"></script>
+<script>      
+ /** fastClick **/
+window.addEventListener('load',function(){
+    FastClick.attach(document.body);
+
+    window.pop02=Pop.create({
+    	id:"tpl-bottom2",
+    	fullpage:document.getElementById("tpl-fullpage2")
+    })
+    document.getElementById("tpl-fullpage2").addEventListener("click",function(e){
+    	if(e.target==this){
+    		pop02.close();
+    	}
+    },false);
+
+    var listArr=Array.prototype.slice.call(document.querySelectorAll("#tpl-fullpage2 li"),0);
+    listArr.forEach(function(list){
+    	list.addEventListener('click',function(){
+    		listArr.forEach(function(item){
+    			item.classList.remove("selected");
+    		})
+    		if(this.getElementsByTagName("input")[0].checked){
+    			this.classList.add("selected");
+    		}   		
+    	},false);
+    })
+
+
+},false);
+
+
+</script>
+</body>
+</html>

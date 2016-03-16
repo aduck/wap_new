@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>发票信息</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="http://file.easeeyes.com/index2015/css/ani.css" />
+</head>
+<body>
+<div class="container">
+	<!-- 头部标题 -->
+	<div class="title-header">
+		<h2 class="text-center">
+			<a href="" class="btn-back"></a>
+			发票信息
+		</h2>
+	</div>
+	<div style="background:#fff;padding-bottom:1rem;">
+		<form>
+			<!--发票选项-->
+			<div class="invoice-box">
+				<h3 class="invoice-title">发票类型</h3>
+				<div class="invoice-nav">
+					<div class="item" data-tpl="qd">
+						<label for="">
+							<input type="radio" name="" value="" />购物清单
+						</label>
+					</div>
+					<div class="item" data-tpl="gr">
+						<label for="">
+							<input type="radio" name="" value="" />个 人
+						</label>
+					</div>
+					<div class="item" data-tpl="gs">
+						<label for="">
+							<input type="radio" name="" value="" />公 司
+						</label>
+					</div>
+				</div>
+			</div>
+			<!--发票详细-->
+			<div class="" id="fp-mainbox">
+				
+			</div>
+			<!--提交-->
+			<div style="padding-top:5rem;">
+				<button class="g-btn-large">确 认</button>
+			</div>
+		</form>
+	</div>
+</div>
+<!--tpl购物清单-->
+<script type="text/tpl" id="qd">
+<div class="invoice-box">
+	<h3 class="invoice-title">发票抬头</h3>
+	<div class="">
+		<textarea disabled="true" placeholder="请填写信息" class="invoice-textipt"></textarea>
+	</div>
+</div>	
+</script>
+<!--tpl个人-->
+<script type="text/tpl" id="gr">
+<div class="invoice-box">
+	<h3 class="invoice-title">发票抬头</h3>
+	<p>个人</p>
+</div>
+<div class="invoice-box">
+	<h3 class="invoice-title">发票内容</h3>
+	<ul class="invoice-content">
+		<li>
+			<label for="">
+				<input type="radio" name="" value="" id="" />
+				<span></span>
+			</label>
+			框架眼镜
+		</li>
+		<li>
+			<label for="">
+				<input type="radio" name="" value="" id="" />
+				<span></span>
+			</label>
+			隐形眼镜
+		</li>
+		<li>
+			<label for="">
+				<input type="radio" name="" value="" id="" />
+				<span></span>
+			</label>
+			护眼用品
+		</li>
+	</ul>
+</div>	
+</script>
+<!--tpl公司-->
+<script type="text/tpl" id="gs">
+<div class="invoice-box">
+	<h3 class="invoice-title">发票抬头</h3>
+	<div class="">
+		<form>
+			<textarea placeholder="请填写信息" name="" class="invoice-textipt"></textarea>
+		</form>
+	</div>
+</div>
+<div class="invoice-box">
+	<h3 class="invoice-title">发票内容</h3>
+	<ul class="invoice-content">
+		<li>
+			<label for="">
+				<input type="radio" name="" value="" id="" />
+				<span></span>
+			</label>
+			框架眼镜
+		</li>
+		<li>
+			<label for="">
+				<input type="radio" name="" value="" id="" />
+				<span></span>
+			</label>
+			隐形眼镜
+		</li>
+		<li>
+			<label for="">
+				<input type="radio" name="" value="" id="" />
+				<span></span>
+			</label>
+			护眼用品
+		</li>
+	</ul>
+</div>	
+</script>
+<!-- scripts -->
+<script src="http://file.easeeyes.com/wap/js/fastclick.min.js"></script>
+<script src="http://file.easeeyes.com/js/response.js"></script>
+<script>  
+function loadTpl(tpl,box){
+	var nodeStr=tpl.innerHTML.trim();
+	box.innerHTML=nodeStr;
+}
+
+window.addEventListener('load',function(){
+	FastClick.attach(document.body);
+
+	//绑定
+	var items=Array.prototype.slice.call(document.querySelectorAll(".invoice-nav .item"),0),
+		box=document.getElementById('fp-mainbox');
+	items.forEach(function(item){
+		item.addEventListener('click',function(){
+			items.forEach(function(item){
+				item.classList.remove('selected');
+			});
+			this.classList.add('selected');
+			var tpid=this.dataset.tpl;
+			loadTpl(document.getElementById(tpid),box)
+		});
+	});
+
+
+},false);
+</script>
+</body>
+</html>

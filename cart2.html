@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>优惠券/余额</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="http://file.easeeyes.com/index2015/css/ani.css" />
+</head>
+<body>
+<div class="container">
+	<!-- 头部标题 -->
+	<div class="title-header">
+		<h2 class="text-center">
+			<a href="" class="btn-back"></a>
+			优惠券/余额
+		</h2>
+	</div>
+	<div class="coupon-title">
+		<h3>选择优惠券</h3>
+		<p>有<span>x张</span>优惠券快到期了</p>
+	</div>
+	<!--有效优惠券-->
+	<div class="coupon-main">
+		<!--优惠券-->
+		<div class="coupon">
+			<!--上-->
+			<div class="top">
+				<div class="checkbox">
+					<label for="yhq-1">
+						<input type="checkbox" value="" name="" id="yhq-1" />
+						<span></span>
+					</label>
+				</div>
+				<div class="price">
+					<span class="">&yen; <b>10</b></span>
+				</div>
+				<div class="gz">
+					<h4>透明隐形眼镜专用</h4>
+					<ul>
+						<li>仅限购买透明隐形眼镜</li>
+						<li>满100可用</li>
+						<li>限尾号1111的手机使用</li>
+					</ul>
+				</div>
+			</div>
+			<!--下-->
+			<p class="bottom">有效期至 2016-03-01</p>
+		</div>
+		<!--优惠券-->
+		<div class="coupon">
+			<!--上-->
+			<div class="top">
+				<div class="checkbox">
+					<label for="yhq-2">
+						<input type="checkbox" value="" name="" id="yhq-2" />
+						<span></span>
+					</label>
+				</div>
+				<div class="price">
+					<span class="">&yen; <b>10</b></span>
+				</div>
+				<div class="gz">
+					<h4>透明隐形眼镜专用</h4>
+					<ul>
+						<li>仅限购买透明隐形眼镜</li>
+						<li>满100可用</li>
+						<li>限尾号1111的手机使用</li>
+					</ul>
+				</div>
+			</div>
+			<!--下-->
+			<p class="bottom">有效期至 2016-03-01</p>
+		</div>
+	</div>
+	<!--过期优惠券-->
+	<div class="coupon-title coupon-title2">查看历史红包</div>
+	<div class="coupon-main">
+		<!--优惠券-->
+		<div class="coupon coupon-disabled">
+			<!--上-->
+			<div class="top">
+				<div class="checkbox">
+					
+				</div>
+				<div class="price">
+					<span class="">&yen; <b>10</b></span>
+				</div>
+				<div class="gz">
+					<h4>透明隐形眼镜专用</h4>
+					<ul>
+						<li>仅限购买透明隐形眼镜</li>
+						<li>满100可用</li>
+						<li>限尾号1111的手机使用</li>
+					</ul>
+				</div>
+			</div>
+			<!--下-->
+			<p class="bottom">有效期至 2016-03-01</p>
+		</div>
+	</div>
+	<!--输入券码-->
+	<div class="coupon-iptbox2">
+		<input type="text" value="" class="coupon-ipt2" placeholder="请输入优惠券号" />
+	</div>
+	<!--余额-->
+	<div class="coupon-title">
+		<h3>余额使用</h3>
+		<p>可使用账户余额 <span class="">&yen;5.00</span></p>
+	</div>
+	<div class="coupon-iptbox coupon-main">
+		<!--余额输入框-->
+		<div class="coupon-ipt">
+			<span>本单使用余额</span>
+			<input type="text" value="" name="" placeholder="请输入使用金额" />
+		</div>
+	</div>
+	
+	<!--确定按钮-->
+	<div class="coupon-submitbox">
+		<button>确 认</button>
+	</div>
+
+</div>	
+<!-- scripts -->
+<script src="http://file.easeeyes.com/wap/js/fastclick.min.js"></script>
+<script src="http://file.easeeyes.com/js/response.js"></script>
+<script src="fold.js"></script>
+<script>      
+/** fastClick **/
+window.addEventListener('load',function(){
+    FastClick.attach(document.body);
+
+    var bars=Array.prototype.slice.call(document.querySelectorAll('.coupon-title'),0),
+    	elems=Array.prototype.slice.call(document.querySelectorAll('.coupon-main'),0);
+    bars.forEach(function(bar,index){
+    	new Folder({
+    		bar:bar,
+    		elem:elems[index],
+    		state:1
+    	})
+    })
+
+},false);
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>手机注册</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="http://file.easeeyes.com/index2015/css/ani.css" />
+<style>
+html,body{height:100%;}
+body{background:#fff;}
+</style>
+</head>
+<body>
+<div class="container">
+	<!-- 头部标题 -->
+	<div class="title-header">
+		<h2 class="text-center">
+			<a href="" class="btn-back"></a>
+			手机注册
+		</h2>
+	</div>
+	
+	<!-- 表单 -->
+	<div class="box-form-lp">
+		<form>
+			<p class="box-underline box-phonenum">
+				<input type="tel" class="num" value="" placeholder="请输入正确的手机号码" id="tel_num" />
+			</p>
+			<p class="box-underline box-yzm">
+				<input type="text" class="yzm" value="" placeholder="请输入验证码" />
+			</p>
+			<button class="g-btn-radius" id="getcodes">获取验证码</button>
+			<p class="box-underline box-pw">
+				<input type="password" class="pw" value="" placeholder="请输入6~12字符密码" />
+			</p>
+			<p class="box-underline box-pw">
+				<input type="password" class="pw" value="" placeholder="请再次输入登录密码" />
+			</p>
+			<p id="msg" style="color:#2bbdd6;"></p>
+			<p style="margin-top:3rem;"><button class="g-btn-large">完成注册</button></p>
+			<p style="margin:1rem 0;font-size:1rem;color:#ccc;">点击完成注册表示您已同意<span style="color:#2bbcd7;" onclick="pop01.open()">易视网用户协议</span></p>
+		</form>
+	</div>
+</div>
+
+<div id="tpl-fullpage" class="tpl-fullpage">
+	<div class="box-tpl-main" id="tpl-bottom">
+		<div class="title">用户协议</div>
+		<div class="text">
+			<h4>一、服务条款的接受及更新</h4>
+			<p>欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网</p>
+			<h4>二、用户的权利</h4>
+			<p>欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网欢迎来到易视网</p>
+		</div>
+		<div class="box-btn">
+			<button onclick="pop01.close()">确 定</button>
+		</div>
+	</div>
+</div>
+
+<!-- scripts -->
+<script src="http://file.easeeyes.com/wap/js/fastclick.min.js"></script>
+<script src="http://file.easeeyes.com/js/response.js"></script>
+<script src="pop.js"></script>
+<script src="getcode.js"></script>
+<script>      
+ /** fastClick **/
+window.addEventListener('load',function(){
+    FastClick.attach(document.body);
+
+    window.pop01=Pop.create({
+    	id:"tpl-bottom",
+    	fullpage:document.getElementById("tpl-fullpage")
+    })
+    document.getElementById("tpl-fullpage").addEventListener("click",function(e){
+    	if(e.target==this){
+    		pop01.close();
+    	}
+    },false);
+    document.getElementById("getcodes").addEventListener("click",function(e){
+    	e.preventDefault();
+    	getCode(20);
+    },false)
+
+},false);
+
+
+
+</script>
+</body>
+</html>

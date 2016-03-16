@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>找回密码</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="http://file.easeeyes.com/index2015/css/ani.css" />
+<style>
+html,body{height:100%;}
+body{background:#fff;}
+</style>
+</head>
+<body>
+<div class="container">
+	<!-- 头部标题 -->
+	<div class="title-header">
+		<h2 class="text-center">
+			<a href="" class="btn-back"></a>
+			找回密码
+		</h2>
+	</div>
+	
+	<div style="padding:2rem 2rem 0;font-size:1.3rem;">验证码发送至：11111111</div>
+
+	<!-- 表单 -->
+	<div class="box-form-lp">
+		<form>
+			<p class="box-underline box-yzm"><input type="text" value="" placeholder="请输入验证码" /></p>
+			<button class="g-btn-radius" id="getcodes">获取验证码</button>
+			<p class="box-underline box-pw">
+				<input type="password" placeholder="请输入新密码" />
+			</p>
+			<p class="box-underline box-pw">
+				<input type="password" placeholder="请确认新密码" />
+			</p>
+			<p id="msg" style="color:#2bbdd6;"></p>
+			<p style="margin-top:3rem;"><button class="g-btn-large" onclick="poper01.open();return false;">提 交</button></p>
+		</form>
+	</div>
+</div>
+
+<!-- 弹窗 -->
+<div class="tpl-fullpage" id="bg-poper-01">
+	<div class="tpl-main alert" id="poper-01">
+		<div class="title">提示消息<span class="close" onclick="poper01.close()">&times;</span></div>
+		<div class="text">
+			设置新密码成功...
+		</div>
+	</div>
+</div>
+<!-- scripts -->
+<script src="http://file.easeeyes.com/wap/js/fastclick.min.js"></script>
+<script src="http://file.easeeyes.com/js/response.js"></script>
+<script src="pop.js"></script>
+<script>      
+/** fastClick **/
+window.addEventListener('load',function(){
+    FastClick.attach(document.body);
+
+    window.poper01=Pop.create({
+    	id:"poper-01",
+    	fullpage:document.getElementById("bg-poper-01")
+    })
+},false);
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+<title>Login</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+body{background:#fff;}
+</style>
+</head>
+<body>
+<div class="container">
+	<!-- 头部标题 -->
+	<div class="title-header">
+		<h2 class="text-center">
+			<a href="" class="btn-back"></a>
+			登陆易视网
+		</h2>
+	</div>
+	<!-- 头像 -->
+	<div class="box-ava-lp">
+		<div class="ava">
+			<img src="http://file.easeeyes.com/wap/images/wap_new/ava.png" />
+		</div>
+		<div class="layer">
+			<img src="http://file.easeeyes.com/wap/images/wap_new/ava_bg.png" />
+		</div>
+	</div>
+	<!-- 表单 -->
+	<div class="box-form-lp">
+		<form>
+			<p class="box-underline box-ipt">
+				<input type="text" class="ipt" value="" placeholder="请输入用户名/邮箱/已验证手机" />
+			</p>
+			<p class="box-underline box-pw">
+				<input type="password" class="pw" value="" placeholder="请输入您的密码" />
+			</p>
+			<p class="box-check">
+				<label for="autologin">
+					<input type="checkbox" id="autologin" />
+					<span class="checkbox"></span>
+					一个月内自动登录
+				</label>
+			</p>
+			<p><button class="g-btn-large">登 陆</button></p>
+			<p style="margin:2rem 0;"><a href="" class="g-btn-large g-btn-nobg">手机快速注册</a></p>
+			<p class="text-right"><a href=""><span class="icon-help"></span>忘记密码</a></p>
+		</form>
+	</div>
+
+	<div class="box-otherlogin">
+		<div class="box-title">
+			<span>第三方快速登陆</span>
+		</div>
+		<div class="box-icons">
+			<a href="" class="icon icon-alipay"></a>
+			<a href="" class="icon icon-qq"></a>
+			<a href="" class="icon icon-sina"></a>
+		</div>
+	</div>
+</div>
+
+<!-- scripts -->
+<script src="http://file.easeeyes.com/wap/js/fastclick.min.js"></script>
+<script src="http://file.easeeyes.com/js/response.js"></script>
+<script>      
+ /** fastClick **/
+window.addEventListener('load',function(){
+    FastClick.attach(document.body);
+},false);
+
+
+
+</script>
+</body>
+</html>
